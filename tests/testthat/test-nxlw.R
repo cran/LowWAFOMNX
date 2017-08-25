@@ -17,18 +17,20 @@ test_that("test lowWAFOMNX points", {
   s <- 4
   m <- 10
   n <- 2^m
-  matrix <- lowWAFOMNX.points(dimR=s, dimF2=m, count=n)
+  matrix <- lowWAFOMNX.points(dimR=s, dimF2=m)
   expect_equal(nrow(matrix), n)
   expect_equal(ncol(matrix), s)
   expect_true(all(matrix < 1))
   expect_true(all(matrix > 0))
+  r2 <- c(0.878349, 0.663337, 0.750795, 0.434933)
+  expect_equal(matrix[2,], r2, tolerance=0.000001)
 })
 
 test_that("test lowWAFOMNX points digitalShift", {
   s <- 4
   m <- 11
   n <- 2^m
-  matrix <- lowWAFOMNX.points(dimR=s, dimF2=m, count=n, digitalShift=TRUE)
+  matrix <- lowWAFOMNX.points(dimR=s, dimF2=m, digitalShift=TRUE)
   expect_equal(nrow(matrix), n)
   expect_equal(ncol(matrix), s)
   expect_true(all(matrix < 1))

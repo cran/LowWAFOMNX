@@ -72,7 +72,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="low-wafom-niederreiter-xing-sequence" class="section level2">
 <h2>Low WAFOM Niederreiter-Xing Sequence</h2>
 <p>R implementation of Low WAFOM Niederreiter-Xing Sequence, based on Shinsuke Mori, “Suuchi Sekibun no tameno QMC Ten Shuugou no Sekkei, Tansaku, oyobi sono Yuukousei”, Master’s Thesis, 2017, and Ryuichi Ohori, “Efficient Quasi Monte Carlo Integration by Adjusting the Derivation-sensitivity Parameter of Walsh Figure of Merit”, Master’s Thesis, 2015.</p>
-<p>Porting to R by Mutsuo Saito. The R version does not returns cordinate value zero, but returns value very near to zero, 2^-64.</p>
+<p>Porting to R by Mutsuo Saito. The R version does not return coordinate value zero, but returns value very near to zero, 2^-64.</p>
 <p>The development of this code is partially supported by JST CREST.</p>
 </div>
 <div id="reference" class="section level2">
@@ -81,34 +81,35 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Shinsuke Mori, “Suuchi Sekibun no tameno QMC Ten Shuugou no Sekkei, Tansaku, oyobi sono Yuukousei”, Master’s Thesis, 2017,</li>
 <li>Ryuichi Ohori, “Efficient Quasi Monte Carlo Integration by Adjusting the Derivation-sensitivity Parameter of Walsh Figure of Merit”, Master’s Thesis, 2015.</li>
 <li>S. Harase and R. Ohori, “A search for extensible low-WAFOM point sets”, arXiv preprint, arXiv:1309.7828, (2013), <a href="https://arxiv.org/abs/1309.7828" class="uri">https://arxiv.org/abs/1309.7828</a>.</li>
+<li>Harase, S. (2016). “A search for extensible low-WAFOM point sets”, Monte Carlo Methods and Applications, 22(4), pp. 349-357, 2017. </li>
 <li>M. Matsumoto and R. Ohori, “Walsh Figure of Merit for Digital Nets: An Easy Measure for Higher Order Convergent QMC”, Springer International Publishing, Cham, 2016, pp. 143-160.</li>
 <li>M. Matsumoto, M. Saito, and K. Matoba, “A computable figure of merit for quasi-Monte Carlo point sets”, Mathematics of Computation, 83 (2014), pp. 1233-1250.</li>
-<li>G. Pirsic, “A software implementation of Niederreiter-Xing sequences”, in Monte Carlo and Quasi-Monte Carlo Methods 2000, Springer, 2002, pp. 434-445.</li>
+<li>G. Pirsic, “A software implementation of Niederreiter-Xing sequences”, in Monte Carlo and Quasi-Monte Carlo Methods 2000, Springer, 2002, pp. 434-445. </li>
 </ul>
 </div>
 <div id="sample" class="section level2">
 <h2>Sample</h2>
-<p>Get avairable dimension number of Low WAFOM Niederreiter-Xing Sequence.</p>
+<p>Get available dimension number of Low WAFOM Niederreiter-Xing Sequence.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(LowWAFOMNX)
 <span class="kw">lowWAFOMNX.dimMinMax</span>()</code></pre></div>
 <pre><code>## [1]  4 32</code></pre>
-<p>Get avairable F2 dimension number of Low WAFOM Niederreiter-Xing Sequence.</p>
+<p>Get available F2 dimension number of Low WAFOM Niederreiter-Xing Sequence.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lowWAFOMNX.dimF2MinMax</span>(<span class="dv">10</span>)</code></pre></div>
 <pre><code>## [1] 10 18</code></pre>
 <p>And get points. Each row of returned matrix contains an s-dimensional point.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s &lt;-<span class="st"> </span><span class="dv">4</span>
 m &lt;-<span class="st"> </span><span class="dv">10</span>
 c &lt;-<span class="st"> </span><span class="dv">2</span><span class="op">^</span>m
-mat &lt;-<span class="st"> </span><span class="kw">lowWAFOMNX.points</span>(<span class="dt">dimR=</span>s, <span class="dt">dimF2=</span>m, <span class="dt">count=</span>c)
+mat &lt;-<span class="st"> </span><span class="kw">lowWAFOMNX.points</span>(<span class="dt">dimR=</span>s, <span class="dt">dimF2=</span>m)
 mat[<span class="dv">1</span>,]</code></pre></div>
 <pre><code>## [1] 5.421011e-20 5.421011e-20 5.421011e-20 5.421011e-20</code></pre>
 <p>Get digital shifted points.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s &lt;-<span class="st"> </span><span class="dv">4</span>
 m &lt;-<span class="st"> </span><span class="dv">10</span>
 c &lt;-<span class="st"> </span><span class="dv">2</span><span class="op">^</span>m
-mat &lt;-<span class="st"> </span><span class="kw">lowWAFOMNX.points</span>(<span class="dt">dimR=</span>s, <span class="dt">dimF2=</span>m, <span class="dt">count=</span>c, <span class="dt">digitalShift=</span><span class="ot">TRUE</span>)
+mat &lt;-<span class="st"> </span><span class="kw">lowWAFOMNX.points</span>(<span class="dt">dimR=</span>s, <span class="dt">dimF2=</span>m, <span class="dt">digitalShift=</span><span class="ot">TRUE</span>)
 mat[<span class="dv">1</span>,]</code></pre></div>
-<pre><code>## [1] 0.48281419 0.76936360 0.06859763 0.88219227</code></pre>
+<pre><code>## [1] 0.43250779 0.07726898 0.65990564 0.10312175</code></pre>
 </div>
 
 

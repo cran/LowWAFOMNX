@@ -21,7 +21,7 @@ Derivation-sensitivity Parameter of Walsh Figure of Merit",
 Master's Thesis, 2015.
 
 Porting to R by Mutsuo Saito.
-The R version does not returns cordinate value zero,
+The R version does not return coordinate value zero,
 but returns value very near to zero, 2^-64.
 
 The development of this code is partially supported
@@ -41,6 +41,10 @@ Reference
   "A search for extensible low-WAFOM point sets",
   arXiv preprint, arXiv:1309.7828, (2013),
   [https://arxiv.org/abs/1309.7828](https://arxiv.org/abs/1309.7828).
+* Harase, S. (2016).
+  "A search for extensible low-WAFOM point sets",
+  Monte Carlo Methods and Applications, 22(4), pp. 349-357, 2017.
+  \doi{10.1515/mcma-2016-0119}
 * M. Matsumoto and R. Ohori,
   "Walsh Figure of Merit for Digital Nets: An Easy Measure
   for Higher Order Convergent QMC",
@@ -52,16 +56,17 @@ Reference
   "A software implementation of Niederreiter-Xing sequences",
   in Monte Carlo and Quasi-Monte Carlo Methods 2000,
   Springer, 2002, pp. 434-445.
+  \doi{10.1007/978-3-642-56046-0_30}
 
 Sample
 ------
-Get avairable dimension number of Low WAFOM Niederreiter-Xing Sequence.
+Get available dimension number of Low WAFOM Niederreiter-Xing Sequence.
 ```{r}
 library(LowWAFOMNX)
 lowWAFOMNX.dimMinMax()
 ```
 
-Get avairable F2 dimension number of Low WAFOM Niederreiter-Xing Sequence.
+Get available F2 dimension number of Low WAFOM Niederreiter-Xing Sequence.
 ```{r}
 lowWAFOMNX.dimF2MinMax(10)
 ```
@@ -71,7 +76,7 @@ And get points. Each row of returned matrix contains an s-dimensional point.
 s <- 4
 m <- 10
 c <- 2^m
-mat <- lowWAFOMNX.points(dimR=s, dimF2=m, count=c)
+mat <- lowWAFOMNX.points(dimR=s, dimF2=m)
 mat[1,]
 ```
 
@@ -80,6 +85,6 @@ Get digital shifted points.
 s <- 4
 m <- 10
 c <- 2^m
-mat <- lowWAFOMNX.points(dimR=s, dimF2=m, count=c, digitalShift=TRUE)
+mat <- lowWAFOMNX.points(dimR=s, dimF2=m, digitalShift=TRUE)
 mat[1,]
 ```
